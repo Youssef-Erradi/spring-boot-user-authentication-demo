@@ -13,6 +13,10 @@ public class UserDetailsImpl implements UserDetails {
 	private static final long serialVersionUID = 8507243922193357582L;
 	private User user;
 
+	public UserDetailsImpl(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return List.of(new SimpleGrantedAuthority(user.getRole().toString()),
