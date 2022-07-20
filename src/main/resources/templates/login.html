@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Basic login page</title>
+</head>
+<body>
+	<form action="/login" method="post">
+		<fieldset>
+		  <legend>Login form :</legend>
+		  <label for="email">Email:</label>
+		  <input type="email" id="email" name="email"><br><br>
+		  <label for="password">Password:</label>
+		  <input type="password" id="password" name="password"><br><br>
+		  <input type="submit" value="Submit">
+		 </fieldset>
+	</form>
+</body>
+</html>
