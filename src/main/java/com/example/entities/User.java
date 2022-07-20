@@ -3,14 +3,18 @@ package com.example.entities;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.example.enums.Role;
 
+@Entity
+@Table(name = "users")
 public class User implements Serializable{
 	private static final long serialVersionUID = -3471921864525437356L;
 
