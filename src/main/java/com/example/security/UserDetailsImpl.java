@@ -1,5 +1,6 @@
 package com.example.security;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,8 +20,11 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return List.of(new SimpleGrantedAuthority(user.getRole().toString()),
-				new SimpleGrantedAuthority("Role_" + user.getRole().toString()));
+		List<GrantedAuthority> authorities = new ArrayList<>();
+		String role = user.getRole().toString();
+		authorities.add(new SimpleGrantedAuthority(role));
+		authorities.add(new SimpleGrantedAuthority("ROLE_"+role));
+		return authorities;
 	}
 
 	@Override
@@ -35,17 +39,17 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override

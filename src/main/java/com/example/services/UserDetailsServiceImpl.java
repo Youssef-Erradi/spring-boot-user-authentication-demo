@@ -11,13 +11,14 @@ import com.example.security.UserDetailsImpl;
 
 public class UserDetailsServiceImpl implements UserDetailsService{
 	@Autowired
-	private UserRepository repo;
-	
+	private UserRepository userRepository;
+
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		User user = repo.getByEmail(email);
-		if(user == null)
+		User user = userRepository.getByEmail(email.strip().toLowerCase());
+		if(user == null) {
 			throw new UsernameNotFoundException("Unable to find a user with the email '"+ email +"'");
+		}
 		return new UserDetailsImpl(user);
 	}
 

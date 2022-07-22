@@ -7,6 +7,12 @@
 </head>
 <body>
 	<form action="/login" method="post">
+		<input type="hidden" name="_csrf" th:value="${_csrf.token}">
+		<div class="error" th:if="${param.error}"
+     th:with="errorMsg=${session['SPRING_SECURITY_LAST_EXCEPTION'].message}">
+    Reason: <span th:text="${errorMsg}">Wrong input!</span>
+</div>
+		
 		<fieldset>
 		  <legend>Login form :</legend>
 		  <label for="email">Email:</label>
